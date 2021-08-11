@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Airplanes from './Airplanes'
 import Search from './Search';
+import AdminFlights from './AdminFlights';
 
 export default function App() {
   return (
