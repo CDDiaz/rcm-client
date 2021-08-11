@@ -20,6 +20,9 @@ export default function App() {
             <li>
               <Link to="/airplanes">Airplanes</Link>
             </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
           </ul>
         </nav>
 
@@ -28,6 +31,10 @@ export default function App() {
         <Switch>
           <Route path="/Airplanes">
             <Airplanes />
+          </Route>
+
+          <Route path="/Search">
+            <Search />
           </Route>
 
 
