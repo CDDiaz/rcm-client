@@ -24,12 +24,9 @@ export default function App() {
             <li>
               <Link to="/search">Search</Link>
             </li>
-<<<<<<< HEAD
-=======
             <li>
               <Link to="/Flights">Flights</Link>
             </li>
->>>>>>> a1c059e6fe9bf301f7e68e3761365ecbe8f7c342
           </ul>
         </nav>
 

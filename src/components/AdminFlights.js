@@ -12,11 +12,12 @@ class AdminFlights extends Component{
       ]
     }
   }
+
  render(){
    return(
      <div>
       <h1> Create New Flight </h1>
-      <CreateFlights />
+      <CreateFlights createFlight />
       <ShowFlights flight={this.state.flights}/>
      </div>
    )
@@ -93,16 +94,15 @@ class CreateFlights extends Component{
 }
 
 ///// Show flights /////
-class ShowFlights extends Component{
+const ShowFlights = (props) => {
 
- render(){
    return(
      <div>
-      <h1>  </h1>
+     <h1> Flights </h1>
+      {props.flight.map ((f) => <p> {f.date}, {f.flightnum}, {f.from}, {f.to}, {f.plane} </p>)}
      </div>
    )
- }
+ };
 
-}
 
 export default AdminFlights;
