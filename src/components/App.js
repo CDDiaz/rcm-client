@@ -24,6 +24,9 @@ export default function App() {
             <li>
               <Link to="/search">Search</Link>
             </li>
+            <li>
+              <Link to="/AdminFlights">Flights</Link>
+            </li>
           </ul>
         </nav>
 
@@ -36,6 +39,10 @@ export default function App() {
 
           <Route path="/Search">
             <Search />
+          </Route>
+
+          <Route path="/Flights">
+            <AdminFlights />
           </Route>
 
 
