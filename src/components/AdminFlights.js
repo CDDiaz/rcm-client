@@ -21,7 +21,20 @@ class CreateFlights extends Component{
  render(){
    return(
      <div>
-      <h1> Virgine Airline </h1>
+      <form>
+        Flight#:
+        <input type="text"/>
+        Date:
+        <input type="date" />
+        from:
+        <input type="text"/>
+        To:
+        <input type="text"/>
+        Plane:
+        <input type="text"/>
+        <input type="submit" value= "Save"/>
+        <input type="submit" value= "Cancel"/>
+      </form>
      </div>
    )
  }
