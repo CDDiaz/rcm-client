@@ -19,12 +19,9 @@ showForm(){
   return(
     <div>
     <form onSubmit={this.saveTable}>
-      Name:
-      <input type="text"/>
-      Rows:
-      <input type="text" />
-      Columns:
-      <input type="text"/>
+      Name:<input type="text"/>
+      Rows:<input type="text" />
+      Columns:<input type="text"/>
       <br/>
       <input type="submit" value= "Save"/>
     </form>
@@ -68,7 +65,7 @@ const AirplanesTable = (props) => {
 
       return(
         <div>
-        
+
         </div>
       )
 
