@@ -14,17 +14,13 @@ showForm(){
 
   return(
     <div>
-    <form>
-      Name:
-      <input type="text"/>
-      Rows:
-      <input type="text" />
-      Columns:
-      <input type="text"/>
-      <br/>
-      <input type="submit" value= "Save"/>
-      <input type="submit" value= "Cancel"/>
-    </form>
+      <form>
+        Name: <input type="text"/>
+        Rows: <input type="text" />
+        Columns: <input type="text"/>
+        <input type="submit" value= "Cancel"/>
+        <input type="submit" value= "Save"/>
+      </form>
     </div>
     )
 
