@@ -1,17 +1,15 @@
 import React, {Component} from 'react'
 
-// Creating Flights ///
-
 class AdminFlights extends Component{
 
   constructor(){
     super();
     this.state = {
-      flightnum: '',
-      date:'',
-      to: '',
-      from:'',
-      plane:''
+       flights: [
+        {flightnum: '34', date:'16/09/2020', to: 'Perth', from:'Sydney', plane:'747'},
+        {flightnum: '54', date:'17/09/2020', to: 'Brisbane', from:'Melbourne', plane:'747'},
+        {flightnum: '24', date:'19/09/2020', to: 'Perth', from:'Melbourne', plane:'747'}
+      ]
     }
   }
  render(){
@@ -19,13 +17,14 @@ class AdminFlights extends Component{
      <div>
       <h1> Create New Flight </h1>
       <CreateFlights />
-      <ShowFlights />
+      <ShowFlights flight={this.state.flights}/>
      </div>
    )
  }
 
 }
 
+// Creating Flights ///
 class CreateFlights extends Component{
 
   constructor(){
@@ -44,31 +43,38 @@ class CreateFlights extends Component{
     this._flightPlane = this._flightPlane.bind(this)
   }
 
+///// onchange event  /////
   _flightNumber(event){
-    this.setState({flightnum: event.target.value})
+    this.setState({flightnum: event.target.value});
   }
 
   _flightDate(event){
-    this.setState({date: event.target.value})
+    this.setState({date: event.target.value});
   }
 
   _flightTo(event){
-    this.setState({to: event.target.value})
+    this.setState({to: event.target.value});
   }
 
   _flightFrom(event){
-    this.setState({from: event.target.value})
+    this.setState({from: event.target.value});
   }
 
   _flightPlane(event){
-    this.setState({plane: event.target.value})
+    this.setState({plane: event.target.value});
   }
+
+  _submitFlight(event){
+
+  }
+
  render(){
    return(
+     ///// Create Flight Input ///////
      <div>
-      <form>
+      <form onSubmit = {this._submitFlight} >
         Flight#:
-        <input type="text" onChange={this._flightNumber}/>
+        <input type="text" onChange={this._flightNumber} />
         Date:
         <input type="date" onChange={this._flightDate}/>
         from:
@@ -77,8 +83,8 @@ class CreateFlights extends Component{
         <input type="text" onChange={this._flightTo}/>
         Plane:
         <input type="text" onChange={this._flightPlane}/>
-        <input type="submit" value= "Save"/>
-        <input type="submit" value= "Cancel"/>
+        <input type="submit" value= "Save" />
+        <input type="submit" value= "Cancel" onSubmit = {this._cancelFlight}/>
       </form>
      </div>
    )
@@ -86,13 +92,13 @@ class CreateFlights extends Component{
 
 }
 
-
+///// Show flights /////
 class ShowFlights extends Component{
 
  render(){
    return(
      <div>
-      <h1> Flights </h1>
+      <h1>  </h1>
      </div>
    )
  }
