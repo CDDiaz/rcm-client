@@ -24,18 +24,26 @@ export default function App() {
             <li>
               <Link to="/search">Search</Link>
             </li>
+            <li>
+              <Link to="/Flights">Flights</Link>
+            </li>
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/Airplanes">
             <Airplanes />
           </Route>
+          <Route path="/Search">
+            <Search />
+          </Route>
 
           <Route path="/Search">
             <Search />
+          </Route>
+
+          <Route path="/Flights">
+            <AdminFlights />
           </Route>
 
 

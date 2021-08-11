@@ -2,41 +2,107 @@ import React, {Component} from 'react'
 
 class AdminFlights extends Component{
 
+  constructor(){
+    super();
+    this.state = {
+       flights: [
+        {flightnum: '34', date:'16/09/2020', to: 'Perth', from:'Sydney', plane:'747'},
+        {flightnum: '54', date:'17/09/2020', to: 'Brisbane', from:'Melbourne', plane:'747'},
+        {flightnum: '24', date:'19/09/2020', to: 'Perth', from:'Melbourne', plane:'747'}
+      ]
+    }
+  }
+
  render(){
    return(
      <div>
       <h1> Create New Flight </h1>
-      <CreateFlights />
-      <ShowFlights />
+      <CreateFlights createFlight />
+      <ShowFlights flight={this.state.flights}/>
      </div>
    )
  }
 
 }
 
+// Creating Flights ///
 class CreateFlights extends Component{
 
+  constructor(){
+    super();
+    this.state = {
+      flightnum: '',
+      date:'',
+      to: '',
+      from:'',
+      plane:''
+    }
+    this._flightNumber = this._flightNumber.bind(this)
+    this._flightDate = this._flightDate.bind(this)
+    this._flightTo = this._flightTo.bind(this)
+    this._flightFrom = this._flightFrom.bind(this)
+    this._flightPlane = this._flightPlane.bind(this)
+  }
+
+///// onchange event  /////
+  _flightNumber(event){
+    this.setState({flightnum: event.target.value});
+  }
+
+  _flightDate(event){
+    this.setState({date: event.target.value});
+  }
+
+  _flightTo(event){
+    this.setState({to: event.target.value});
+  }
+
+  _flightFrom(event){
+    this.setState({from: event.target.value});
+  }
+
+  _flightPlane(event){
+    this.setState({plane: event.target.value});
+  }
+
+  _submitFlight(event){
+
+  }
+
  render(){
    return(
+     ///// Create Flight Input ///////
      <div>
-      <h1> Virgine Airline </h1>
+      <form onSubmit = {this._submitFlight} >
+        Flight#:
+        <input type="text" onChange={this._flightNumber} />
+        Date:
+        <input type="date" onChange={this._flightDate}/>
+        from:
+        <input type="text" onChange={this._flightFrom}/>
+        To:
+        <input type="text" onChange={this._flightTo}/>
+        Plane:
+        <input type="text" onChange={this._flightPlane}/>
+        <input type="submit" value= "Save" />
+        <input type="submit" value= "Cancel" onSubmit = {this._cancelFlight}/>
+      </form>
      </div>
    )
  }
 
 }
 
+///// Show flights /////
+const ShowFlights = (props) => {
 
-class ShowFlights extends Component{
-
- render(){
    return(
      <div>
-      <h1> Flights </h1>
+     <h1> Flights </h1>
+      {props.flight.map ((f) => <p> {f.date}, {f.flightnum}, {f.from}, {f.to}, {f.plane} </p>)}
      </div>
    )
- }
+ };
 
-}
 
 export default AdminFlights;
