@@ -6,18 +6,23 @@ class AdminFlights extends Component{
     super();
     this.state = {
        flights: [
-        {flightnum: '34', date:'16/09/2020', to: 'Perth', from:'Sydney', plane:'747'},
-        {flightnum: '54', date:'17/09/2020', to: 'Brisbane', from:'Melbourne', plane:'747'},
-        {flightnum: '24', date:'19/09/2020', to: 'Perth', from:'Melbourne', plane:'747'}
+         {flightnum: '34', date:'16/09/2020', to: 'Perth', from:'Sydney', plane:'747'},
+         {flightnum: '54', date:'17/09/2020', to: 'Brisbane', from:'Melbourne', plane:'747'},
+         {flightnum: '24', date:'19/09/2020', to: 'Perth', from:'Melbourne', plane:'747'}
       ]
-    }
+    };
+    this.createFlight = this.createFlight.bind(this);
   }
+
+  createFlight(childstate){
+    this.setState({flights: [...this.state.flights, childstate]});
+    }
 
  render(){
    return(
      <div>
       <h1> Create New Flight </h1>
-      <CreateFlights createFlight />
+      <CreateFlights onSubmit={ this.createFlight } />
       <ShowFlights flight={this.state.flights}/>
      </div>
    )
@@ -42,6 +47,7 @@ class CreateFlights extends Component{
     this._flightTo = this._flightTo.bind(this)
     this._flightFrom = this._flightFrom.bind(this)
     this._flightPlane = this._flightPlane.bind(this)
+    this._submitFlight = this._submitFlight.bind(this)
   }
 
 ///// onchange event  /////
@@ -66,8 +72,11 @@ class CreateFlights extends Component{
   }
 
   _submitFlight(event){
-
+    event.preventDefault();
+    this.props.onSubmit(this.state);
+    this.setState({flightnum: '', date:'', to: '', from:'', plane:''});
   }
+
 
  render(){
    return(
@@ -75,17 +84,16 @@ class CreateFlights extends Component{
      <div>
       <form onSubmit = {this._submitFlight} >
         Flight#:
-        <input type="text" onChange={this._flightNumber} />
+        <input type="text" onChange={this._flightNumber} value={this.state.flightnum}/>
         Date:
-        <input type="date" onChange={this._flightDate}/>
+        <input type="date" onChange={this._flightDate} value={this.state.date}/>
         from:
-        <input type="text" onChange={this._flightFrom}/>
+        <input type="text" onChange={this._flightFrom} value={this.state.from}/>
         To:
-        <input type="text" onChange={this._flightTo}/>
+        <input type="text" onChange={this._flightTo} value={this.state.to}/>
         Plane:
-        <input type="text" onChange={this._flightPlane}/>
+        <input type="text" onChange={this._flightPlane} value={this.state.plane}/>
         <input type="submit" value= "Save" />
-        <input type="submit" value= "Cancel" onSubmit = {this._cancelFlight}/>
       </form>
      </div>
    )
@@ -99,7 +107,7 @@ const ShowFlights = (props) => {
    return(
      <div>
      <h1> Flights </h1>
-      {props.flight.map ((f) => <p> {f.date}, {f.flightnum}, {f.from}, {f.to}, {f.plane} </p>)}
+      {props.flight.map ((f) => <p>  {f.date} | {f.flightnum} | {f.from} | {f.to} |  {f.plane} </p>)}
      </div>
    )
  };
