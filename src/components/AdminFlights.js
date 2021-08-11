@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+// Creating Flights ///
+
 class AdminFlights extends Component{
 
  render(){
