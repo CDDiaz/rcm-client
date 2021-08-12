@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rcm-client/static/css/main.d1d8e75b.chunk.css",
-    "main.js": "/rcm-client/static/js/main.1a17d648.chunk.js",
-    "main.js.map": "/rcm-client/static/js/main.1a17d648.chunk.js.map",
+    "main.js": "/rcm-client/static/js/main.c0725c09.chunk.js",
+    "main.js.map": "/rcm-client/static/js/main.c0725c09.chunk.js.map",
     "runtime-main.js": "/rcm-client/static/js/runtime-main.93fcd386.js",
     "runtime-main.js.map": "/rcm-client/static/js/runtime-main.93fcd386.js.map",
     "static/js/2.1f614afd.chunk.js": "/rcm-client/static/js/2.1f614afd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.93fcd386.js",
     "static/js/2.1f614afd.chunk.js",
     "static/css/main.d1d8e75b.chunk.css",
-    "static/js/main.1a17d648.chunk.js"
+    "static/js/main.c0725c09.chunk.js"
   ]
 }
