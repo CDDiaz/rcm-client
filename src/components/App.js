@@ -8,6 +8,7 @@ import {
 import Airplanes from './Airplanes'
 import Search from './Search';
 import AdminFlights from './AdminFlights';
+import Reservations from './Reservations';
 
 import './css/Airlines.css'
 
@@ -30,6 +31,9 @@ export default function App() {
             <li>
               <Link to="/Flights">Flights</Link>
             </li>
+            <li>
+              <Link to="/Reservations">Book</Link>
+            </li>
           </ul>
         </nav>
 
@@ -42,6 +46,9 @@ export default function App() {
           </Route>
           <Route path="/Flights">
             <AdminFlights />
+          </Route>
+          <Route path="/Reservations">
+            <Reservations />
           </Route>
 
 

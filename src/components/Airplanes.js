@@ -64,7 +64,7 @@ showForm(){
       <br/>
       <input type="submit" value= "Save"/>
     </form>
-    <input type="submit" value= "Cancel"/>
+    <input type="submit" value= "Cancel" onClick={() => this.setState({showForm: false}) }/>
     </div>
   )
 }
@@ -95,6 +95,7 @@ const AirplanesTable = (props) => {
     }
 
   return(
+
     <div className="airlines">
       <div>
         <h3> {props.name}</h3>
@@ -103,11 +104,9 @@ const AirplanesTable = (props) => {
         {seats}
       </div>
     </div>
+    )
 
-
-
-  )
-}
+  }
 
 
 
