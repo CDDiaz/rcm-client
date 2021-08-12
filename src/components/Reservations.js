@@ -7,7 +7,6 @@ class Reservations extends Component {
   render(){
     return(
       <div>
-        <h1>Burning Airlines</h1>
             <h3>Who knows when you'll be able to book</h3>
           <div className="fire">
           <div className="fire-left">

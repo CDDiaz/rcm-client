@@ -1,5 +1,11 @@
 #root {
   margin: 10px;
+
+}
+
+li {
+  display: inline;
+  margin: 10px;
 }
 .airlines {
   width: 100%;

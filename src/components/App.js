@@ -17,7 +17,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <nav className ="nav">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -29,13 +29,15 @@ export default function App() {
               <Link to="/search">Search</Link>
             </li>
             <li>
-              <Link to="/Flights">Flights</Link>
+              <Link to="/flights">Flights</Link>
             </li>
             <li>
-              <Link to="/Reservations">Book</Link>
+              <Link to="/reservations">Book</Link>
             </li>
           </ul>
         </nav>
+
+        <h1>Burning Airlines</h1>
 
         <Switch>
           <Route path="/Airplanes">

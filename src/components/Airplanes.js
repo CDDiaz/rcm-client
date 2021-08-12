@@ -72,7 +72,6 @@ showForm(){
   render(){
     return(
       <div>
-        <h1>Burning Airlines</h1>
         <button onClick={() => this.setState({showForm: true}) }>Create Plane
           </button>
           {this.state.showForm ? this.showForm() : null}
