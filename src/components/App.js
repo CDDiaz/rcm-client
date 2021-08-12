@@ -26,7 +26,7 @@ export default function App() {
               <Link to="/airplanes">Airplanes</Link>
             </li>
             <li>
-              <Link to="/search">Search</Link>
+              <Link to="/Search">Search</Link>
             </li>
             <li>
               <Link to="/flights">Flights</Link>

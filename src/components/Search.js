@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 const SERVER_URL = 'http://localhost:3000/flights.json';
 
 class Search extends Component {
@@ -80,7 +81,7 @@ class SearchForm extends Component {
     this.setState({ destination: event.target.value });
   }
 
-  render() {
+  showForm() {
     return(
       <div>
         <h2> FORM </h2>
@@ -111,25 +112,30 @@ const SearchResults = (props) => {
   let selectedDestination = '';
 
   if (!!searchInput){
-    selectedOrigin = searchInput.origin;
-    selectedDestination = searchInput.destination;
+    selectedOrigin = searchInput.origin.toLowerCase();
+    selectedDestination = searchInput.destination.toLowerCase();
     console.log("selectedOrigin", selectedOrigin);
     console.log("selectedDestination", selectedDestination);
   }
+
+
 
   return (
     <div>
       <br/>
       <h1>Flight Search Results</h1>
-        { props.flights.filter(flight => flight.origin === selectedOrigin && flight.destination === selectedDestination).map(filteredFlight => (
-          <li>
-            Flight Number: {filteredFlight.flight_number},
+        { props.flights.filter(flight => flight.origin.toLowerCase() === selectedOrigin && flight.destination.toLowerCase() === selectedDestination).map(filteredFlight => (
+          <li key={ filteredFlight.id }>
+            <a href={"/flight/" + filteredFlight.flight_number}>Flight: {filteredFlight.flight_number}</a>,
             From: {filteredFlight.origin},
             To: {filteredFlight.destination},
-            Date: {filteredFlight.date}
+            Date: {filteredFlight.date},
+            Plane: {filteredFlight.airplane.name}
           </li>
         ))}
         <br/>
+
+
     </div>
   )
 }
