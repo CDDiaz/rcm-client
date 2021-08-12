@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rcm-client/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/rcm-client/static/js/main.cb5d1c6b.chunk.js",
+    "main.js.map": "/rcm-client/static/js/main.cb5d1c6b.chunk.js.map",
+    "runtime-main.js": "/rcm-client/static/js/runtime-main.f859d90a.js",
+    "runtime-main.js.map": "/rcm-client/static/js/runtime-main.f859d90a.js.map",
+    "static/js/2.cc46b5a3.chunk.js": "/rcm-client/static/js/2.cc46b5a3.chunk.js",
+    "static/js/2.cc46b5a3.chunk.js.map": "/rcm-client/static/js/2.cc46b5a3.chunk.js.map",
+    "static/js/3.2064f309.chunk.js": "/rcm-client/static/js/3.2064f309.chunk.js",
+    "static/js/3.2064f309.chunk.js.map": "/rcm-client/static/js/3.2064f309.chunk.js.map",
+    "index.html": "/rcm-client/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/rcm-client/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.cc46b5a3.chunk.js.LICENSE.txt": "/rcm-client/static/js/2.cc46b5a3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f859d90a.js",
+    "static/js/2.cc46b5a3.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.cb5d1c6b.chunk.js"
+  ]
+}
