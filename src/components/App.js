@@ -9,6 +9,9 @@ import Airplanes from './Airplanes'
 import Search from './Search';
 import AdminFlights from './AdminFlights';
 
+import './css/Airlines.css'
+
+
 export default function App() {
   return (
     <Router>
@@ -24,12 +27,9 @@ export default function App() {
             <li>
               <Link to="/search">Search</Link>
             </li>
-<<<<<<< HEAD
-=======
             <li>
               <Link to="/Flights">Flights</Link>
             </li>
->>>>>>> a1c059e6fe9bf301f7e68e3761365ecbe8f7c342
           </ul>
         </nav>
 
@@ -40,11 +40,6 @@ export default function App() {
           <Route path="/Search">
             <Search />
           </Route>
-
-          <Route path="/Search">
-            <Search />
-          </Route>
-
           <Route path="/Flights">
             <AdminFlights />
           </Route>

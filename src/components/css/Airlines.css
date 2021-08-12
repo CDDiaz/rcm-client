@@ -1,0 +1,25 @@
+#root {
+  margin: 10px;
+}
+.airlines {
+  width: 100%;
+  margin: 0;
+    padding: 0;
+}
+
+.table {
+  text-align: center;
+  width:80%;
+  margin: 0 auto;
+
+}
+
+.table td {
+  border: 1px solid #ddd;
+  width: 40px;
+  margin: 0 auto;
+}
+
+.table tr {
+  width: 500px;
+}
