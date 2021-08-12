@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Airplanes from './Airplanes'
+import Airplanes from './Airplanes';
 import Search from './Search';
 import AdminFlights from './AdminFlights';
 import Reservations from './Reservations';
@@ -15,7 +15,7 @@ import './css/Airlines.css'
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/rcm-client">
       <div>
         <nav className ="nav">
           <ul>

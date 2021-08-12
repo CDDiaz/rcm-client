@@ -80,7 +80,8 @@ class SearchForm extends Component {
     this.setState({ destination: event.target.value });
   }
 
-  showForm() {
+
+  render() {
     return(
       <div>
         <form onSubmit={ this._handleSubmit }>
