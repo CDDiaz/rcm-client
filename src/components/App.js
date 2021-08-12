@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Airplanes from './Airplanes';
+import Airplanes from './Airplanes'
 import Search from './Search';
 import AdminFlights from './AdminFlights';
 import Reservations from './Reservations';
