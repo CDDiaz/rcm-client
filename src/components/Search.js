@@ -80,7 +80,7 @@ class SearchForm extends Component {
     this.setState({ destination: event.target.value });
   }
 
-  render() {
+  showForm() {
     return(
       <div>
         <h2> FORM </h2>
