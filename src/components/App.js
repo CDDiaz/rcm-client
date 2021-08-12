@@ -15,7 +15,7 @@ import './css/Airlines.css'
 
 export default function App() {
   return (
-    <Router basename="/rcm-client">
+    <Router>
       <div>
         <nav className ="nav">
           <ul>
