@@ -8,12 +8,16 @@ import {
 import Airplanes from './Airplanes'
 import Search from './Search';
 import AdminFlights from './AdminFlights';
+import Reservations from './Reservations';
+
+import './css/Airlines.css'
+
 
 export default function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <nav className ="nav">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -25,10 +29,15 @@ export default function App() {
               <Link to="/Search">Search</Link>
             </li>
             <li>
-              <Link to="/Flights">Flights</Link>
+              <Link to="/flights">Flights</Link>
+            </li>
+            <li>
+              <Link to="/reservations">Book</Link>
             </li>
           </ul>
         </nav>
+
+        <h1>Burning Airlines</h1>
 
         <Switch>
           <Route path="/Airplanes">
@@ -37,13 +46,11 @@ export default function App() {
           <Route path="/Search">
             <Search />
           </Route>
-
-          <Route path="/Search">
-            <Search />
-          </Route>
-
           <Route path="/Flights">
             <AdminFlights />
+          </Route>
+          <Route path="/Reservations">
+            <Reservations />
           </Route>
 
 

@@ -1,24 +1,34 @@
 import React, {Component} from 'react'
+import axios from 'axios';
+
+const SERVER_URL = 'https://rcm-airlines.herokuapp.com/flights.json'
+
 
 class AdminFlights extends Component{
 
   constructor(){
     super();
     this.state = {
-       flights: [
-         {flightnum: '34', date:'16/09/2020', to: 'Perth', from:'Sydney', plane:'747'},
-         {flightnum: '54', date:'17/09/2020', to: 'Brisbane', from:'Melbourne', plane:'747'},
-         {flightnum: '24', date:'19/09/2020', to: 'Perth', from:'Melbourne', plane:'747'}
-      ]
+       flights: []
     };
+
     this.createFlight = this.createFlight.bind(this);
+  }
+
+  componentDidMount(){
+    const fetchFlights = () => {
+      axios.get(SERVER_URL).then ((response) => {
+        this.setState({flights: response.data })
+      });
+    }
+    fetchFlights();
   }
 
   createFlight(childstate){
     this.setState({flights: [...this.state.flights, childstate]});
     }
 
- render(){
+  render(){
    return(
      <div>
       <h1> Create New Flight </h1>
@@ -30,17 +40,17 @@ class AdminFlights extends Component{
 
 }
 
-// Creating Flights ///
+////////////////////////////////// Creating Flights ////////////////////////////
 class CreateFlights extends Component{
 
   constructor(){
     super();
     this.state = {
-      flightnum: '',
+      flight_number: '',
       date:'',
-      to: '',
-      from:'',
-      plane:''
+      destination: '',
+      origin:'',
+      airplane:''
     }
     this._flightNumber = this._flightNumber.bind(this)
     this._flightDate = this._flightDate.bind(this)
@@ -52,7 +62,7 @@ class CreateFlights extends Component{
 
 ///// onchange event  /////
   _flightNumber(event){
-    this.setState({flightnum: event.target.value});
+    this.setState({flight_number: event.target.value});
   }
 
   _flightDate(event){
@@ -60,37 +70,38 @@ class CreateFlights extends Component{
   }
 
   _flightTo(event){
-    this.setState({to: event.target.value});
+    this.setState({destination: event.target.value});
   }
 
   _flightFrom(event){
-    this.setState({from: event.target.value});
+    this.setState({origin: event.target.value});
   }
 
   _flightPlane(event){
-    this.setState({plane: event.target.value});
+    this.setState({airplane: event.target.value});
   }
 
   _submitFlight(event){
     event.preventDefault();
     this.props.onSubmit(this.state);
-    this.setState({flightnum: '', date:'', to: '', from:'', plane:''});
+    this.setState({flight_number: '', date:'', destination: '', from:'', plane:''});
+
   }
 
 
  render(){
    return(
-     ///// Create Flight Input ///////
+                            ///// Create Flight Input ///////
      <div>
       <form onSubmit = {this._submitFlight} >
         Flight#:
-        <input type="text" onChange={this._flightNumber} value={this.state.flightnum}/>
+        <input type="text" onChange={this._flightNumber} value={this.state.flight_number}/>
         Date:
         <input type="date" onChange={this._flightDate} value={this.state.date}/>
-        from:
-        <input type="text" onChange={this._flightFrom} value={this.state.from}/>
+        From:
+        <input type="text" onChange={this._flightFrom} value={this.state.origin}/>
         To:
-        <input type="text" onChange={this._flightTo} value={this.state.to}/>
+        <input type="text" onChange={this._flightTo} value={this.state.destination}/>
         Plane:
         <input type="text" onChange={this._flightPlane} value={this.state.plane}/>
         <input type="submit" value= "Save" />
@@ -101,13 +112,13 @@ class CreateFlights extends Component{
 
 }
 
-///// Show flights /////
+////////////////////////////////// Show flights ///////////////////////////////
 const ShowFlights = (props) => {
 
    return(
      <div>
      <h1> Flights </h1>
-      {props.flight.map ((f) => <p>  {f.date} | {f.flightnum} | {f.from} | {f.to} |  {f.plane} </p>)}
+      {props.flight.map ((f) => <p>  {f.date} | {f.flight_number} | {f.origin} | {f.destination} | {f.airplane.name} | {f.airplane.column * f.airplane.row} </p>)}
      </div>
    )
  };
