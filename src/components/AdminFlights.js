@@ -18,15 +18,18 @@ class AdminFlights extends Component{
   componentDidMount(){
     const fetchFlights = () => {
       axios.get(SERVER_URL).then ((response) => {
-        this.setState({flights: response.data })
+        this.setState({flights: response.data });
+        setTimeout(fetchFlights,9000);
       });
-    }
+    };
     fetchFlights();
   }
 
-  createFlight(childstate){
-    this.setState({flights: [...this.state.flights, childstate]});
-    }
+  createFlight(childstate) {
+    axios.post(SERVER_URL, {flights: childstate}).then((response) => {
+      this.setState({flights: [...this.state.flights, response.data]});
+    });
+  }
 
   render(){
    return(
@@ -103,7 +106,13 @@ class CreateFlights extends Component{
         To:
         <input type="text" onChange={this._flightTo} value={this.state.destination}/>
         Plane:
-        <input type="text" onChange={this._flightPlane} value={this.state.plane}/>
+        <select onChange={this._flightPlane} value={this.state.plane}>
+          <option value="plane">747</option>
+          <option value="plane">737</option>
+          <option value="plane">320</option>
+          <option value="plane">330</option>
+          <option value="plane">757</option>
+        </select>
         <input type="submit" value= "Save" />
       </form>
      </div>

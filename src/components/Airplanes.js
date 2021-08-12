@@ -88,7 +88,7 @@ const AirplanesTable = (props) => {
     for(let row = 1; row <= props.rows; row++){
       const rows = [];
       for(let column = 1; column <= props.columns; column++){
-        rows.push(<td>{(row+ 9).toString(36).toUpperCase() + column.toString()}</td>);
+        rows.push(<td>{(row + 9).toString(36).toUpperCase() + column.toString()}</td>);
       }
       seats.push(<tr>{rows}</tr>)
     }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import AirplanesTable from './Airplanes'
 
-//creating an airplane
 
 class Reservations extends Component {
 
