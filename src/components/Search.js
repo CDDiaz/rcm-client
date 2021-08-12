@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
 const SERVER_URL = 'http://localhost:3000/flights.json';
 
 class Search extends Component {
@@ -43,7 +42,7 @@ class Search extends Component {
   render() {
     return(
       <div>
-        <h1>Searching</h1>
+        <h1>Search for Flights</h1>
         <SearchForm onSubmit={ this.newSearch }/>
         <SearchResults search={ this.state.search } flights={ this.state.flights } />
       </div>
@@ -84,11 +83,10 @@ class SearchForm extends Component {
   render() {
     return(
       <div>
-        <h2> FORM </h2>
         <form onSubmit={ this._handleSubmit }>
-          <p>Origin:</p>
+          <p>From:</p>
           <input onChange={ this._handleOrigin } value={this.state.origin} type="text" name="origin" placeholder="Sydney" />
-          <p>Destination:</p>
+          <p>To:</p>
           <input onChange={ this._handleDestination } value={this.state.destination} type="text" name="destination" placeholder="Perth" />
           <br/>
           <br/>
@@ -118,7 +116,7 @@ const SearchResults = (props) => {
     console.log("selectedDestination", selectedDestination);
   }
 
-
+  const header = ["Flight", "From", "To", "Date", "Plane"];
 
   return (
     <div>
@@ -131,10 +129,30 @@ const SearchResults = (props) => {
             To: {filteredFlight.destination},
             Date: {filteredFlight.date},
             Plane: {filteredFlight.airplane.name}
+            <br/>
           </li>
         ))}
         <br/>
 
+        <table>
+          <thead>
+            <tr>{header.map((h, i) => <th key={i}>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {Object.keys(props.flights).map((k, i) => {
+              let data = props.flights[k];
+              return (
+                <tr key={i}>
+                  <td>{data.flight_number}</td>
+                  <td>{data.origin}</td>
+                  <td>{data.destination}</td>
+                  <td>{data.date}</td>
+                  <td>{data.airplane.name}</td>
+                </tr>
+              );
+            })}
+            </tbody>
+          </table>
 
     </div>
   )
